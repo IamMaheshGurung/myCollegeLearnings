@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <string.h>
 //here defining a structure to hold employee detai
 struct Employee{
     int ID;
     char name[50];
-    int salary;
+    float salary;
 };
 //main function starts from here
 
@@ -19,13 +20,13 @@ int main(){
     scanf("%s", employee.name);
 //same for the Salary
     printf("Enter his or her Salary: ");
-    scanf("%d", &employee.salary);
+    scanf("%f", &employee.salary);
 
     //Now displaying this
     printf("\nEmployee Details:\n");
     printf("ID: %d\n", employee.ID);
     printf("Name: %s\n", employee.name);
-    printf("Salary: %d\n", employee.salary);
+    printf("Salary: %.2f\n", employee.salary);
     return 0;
 }
 
