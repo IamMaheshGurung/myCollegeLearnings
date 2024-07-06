@@ -1,26 +1,44 @@
-/*TEMPRETURE CONVERTER*/
+/*
+ *Title : TEMPRETURE CONVERTER
+ *Author : Mahesh Gurung
+ *Source : Tutorial Exercise
+*/
 
 #include <stdio.h>
+#include <ctype.h>
 
 int main(){
-    int Temp;
-    int choice;
-    
-    
+    //declaration
 
-    printf("Enter the desired temp: \n");
-    scanf("%d", &Temp);
-    printf("Enter 0 for celsius to Fahrenheit and 1 for fahrenheit to Celsius: ");
-    scanf("%d", &choice);
+    char unit;
+    float temp;
+    
+    printf("TEMPRETURE CONVERISON\n");
+    printf("\n");
+    printf("Is the tempreture in (F) or (C)?\n while C is celsius and F is Fahrenheit");
 
-    if(choice==0){
-        Temp = (Temp * 9/5) + 32;
-        printf("%d", &Temp);
+    scanf("%c", &unit);
+    unit = toupper(unit);
+
+    switch(unit){
+        case 'C':
+            printf("\n Enter the tempreture in celcius:");
+            scanf("%f", &temp);
+            temp = (temp * 9 / 5) + 32;
+            printf("the tempreture in fahrenheit is %.2f", temp);
+            break;
+
+        case 'F' :
+            printf("\n Enter the tempreture in Fahrenheit:");
+            scanf("%f", & temp);
+            temp = (temp -32) * 5 /9;
+            printf("The temp in celcius is %.2f", temp);
+            break;
+
+        default:
+            printf("Enter a valid unit and try again");
     }
-    else if(choice==1){
-        Temp= (Temp - 32) * (5/9);
-        printf("%d", &Temp);
-    }
+            
 
 
     return 0;
