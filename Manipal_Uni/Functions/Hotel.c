@@ -12,6 +12,7 @@
 
 void service();
 void roomSelection();
+void guests();
 
 int main(){
     printf("\n ************************************************\n");
@@ -66,6 +67,8 @@ void roomSelection(){
     scanf("%d", &num);
     if(num == 1){
         printf("Thank you for the Bed Type Selection");
+        guests();
+
     }
     else if(num == 2){
         printf("Thank you for the futton type selection");
@@ -77,6 +80,29 @@ void roomSelection(){
         printf("Enter an valid option");
     }
 }
+
+void guests(){
+    int guest;
+    
+    printf("\n How many number of guest we have\n");
+    scanf("%d", &guest);
+    while(guest < 1 || guest > 2){
+        printf("\nPlease enter valid number of guest\n");
+        scanf("%d", &guest);
+    }
+     
+    if(guest==1){
+        printf("\n***Thank you so much for choosing Double Bed***\n");
+        printf("\nThank you so much please fill the form\n");
+     }
+    else if(guest==2){
+        printf("\n***Thank you so much for choosing Single Bed***\n");
+        printf("\n🍀Thank you so much🍀\n ***Please fill form🔖***\n");
+     }
+    else{
+        printf("\nContact at hotel\n");
+    }
+ }
 
 
         
