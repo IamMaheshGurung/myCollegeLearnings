@@ -33,19 +33,22 @@ int main(){
         printf("\n");
     }
     
-    char uName[100];
+    
     char CoyName[6][50];
 
     strcpy(CoyName[0], "Alpha");
 
     printf("%s\n", CoyName[0]);
     printf("Enter your Name:\n");
+    char uName[100];
     fgets(uName, sizeof(uName),stdin);
 
-    //uName[strcspn(uName,"\n")]=0;
+    uName[strcspn(uName,"\n")]=0;
     strcpy(CoyName[1], uName);
 
-    printf("%s\n", CoyName[1]);
+    for(int i = 0; i<=sizeof(CoyName)/sizeof(CoyName[0]);i++){
+    printf("%s\n", CoyName[i]);
+    }
     
     return 0;
     }
