@@ -16,7 +16,9 @@ int players;
 #define MAX_PLAYER 4
 #define MAX_LENGTH 50
 char player[MAX_PLAYER][MAX_LENGTH];
-
+char symbol[MAX_PLAYER] = {'*', '#', '$', '@'};
+char response[1];
+int score[MAX_PLAYER][1] = {0, 0, 0, 0};
 
 
 
@@ -25,18 +27,35 @@ void resetCourt();
 int entry();
 void detail(int players);
 void buffer();
+//char checkwinner();
+int checkScore(int players);
+
+//int Dice();
+
 
 
 
 int main(){
-    
+   char winner = ' ';
 
+   
+
+
+   
     printf("****************************************\n");
     printf("****WELCOME TO SNAKE AND LADDER GAME****\n");
-    entry();
-    detail(players);
-    resetCourt();
-    printCourt();
+    
+   
+
+        entry();
+        detail(players);
+    while (/*checkWinner== ' ' && */checkScore() != 100){
+        resetCourt();
+        printCourt();
+        checkScore(players);
+    }
+
+
 
 
 
@@ -68,7 +87,8 @@ void detail(int players){
         
     }
     for(int i = 0; i < players; i++){
-        printf("%s\n", player[i]);
+        printf("=>%s your symbol is %c\n", player[i], symbol[i]);
+        
         }
 
 }
@@ -113,6 +133,11 @@ void printCourt(){
     printf("| %c | %c | %c | %c | %c | %c | %c | %c | %c | %c |", court[9][0], court[9][1],court[9][2], court[9][3],court[9][4], court[9][5],court[9][6], court[9][7],court[9][8], court[9][9]);
     printf("\n|---------------------------------------|\n");
     printf("\n");
+    for (int i = 0; i < players; i++){
+        printf("--%c\n", symbol[i]);
+        printf("Score is %d\n", score[i][i]);
+    }
+
 }
 
 void buffer(){
@@ -120,8 +145,27 @@ void buffer(){
 }
 
 
+int checkScore(players){
+    printf("Please Press 'r' to roll");
+    for(int i = 0; i < players; i++){
+        if(response == 'r'){
+           int rolled = Dice();
+        score[i][i] = score[i][i] + rolled;
+        }
+        else{
+            printf("Please press r again");
+        }
+    }
+    return score;
+}
 
 
+    
+//int Dice(){
+ //   srand(time(NULL));
+
+   // return rand() % 6 + 1;
+//}
 
 
 
